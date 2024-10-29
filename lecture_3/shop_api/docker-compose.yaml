@@ -1,10 +1,9 @@
 version: "3"
 
 services:
-  local:
+  shop_api:
     image: python-backend-lecture-3-local:latest
     build:
-      context: .
       dockerfile: ./Dockerfile
     restart: always
     ports:
@@ -16,7 +15,6 @@ services:
       - 3000:3000
 
   prometheus:
-#   http://host.docker.internal:9090
     image: prom/prometheus
     volumes:
       - ./settings/prometheus/:/etc/prometheus/
