@@ -2,7 +2,7 @@ from __future__ import annotations
 from pydantic import BaseModel, ConfigDict
 
 from typing import List, Optional
-from lecture_2.hw.shop_api.store import CartItem
+from store import CartItem
 
 
 class CartResponse(BaseModel):

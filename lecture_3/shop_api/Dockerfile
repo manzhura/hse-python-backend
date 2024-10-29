@@ -13,10 +13,13 @@ RUN apt-get update && \
 #     libpq-dev
 
 
-WORKDIR /service
+WORKDIR $APP_ROOT/src
+COPY . ./
 
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+ENV VIRTUAL_ENV=$APP_ROOT/src/.venv \
+    PATH=$APP_ROOT/src/.venv/bin:$PATH
+
+RUN pip install -r requirements.txt
 COPY . .
 
 CMD ["uvicorn", "main:app", "--port", "8080", "--host", "0.0.0.0"]

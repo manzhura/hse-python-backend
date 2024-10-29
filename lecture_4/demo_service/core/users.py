@@ -70,3 +70,10 @@ class UserService:
 
 def password_is_longer_than_8(password: str) -> bool:
     return len(password) > 8
+
+
+import random
+
+
+
+
